@@ -2,7 +2,7 @@
     "name": "Template",
     "injected_name": "template",
     "versions": {
-        "mod": "0.1",
-        "game": "0.1"
+        "mod": "0.2",
+        "game": "0.4b"
     }
 }
