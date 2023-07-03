@@ -1,8 +1,8 @@
 {
-    "name": "Bank",
-    "injected_name": "bank",
-    "versions": {
-        "mod": "0.2",
-        "game": "0.4b"
-    }
+  "name": "Bank",
+  "injected_name": "bank",
+  "versions": {
+    "mod": "0.2",
+    "game": "0.4b"
+  }
 }
