@@ -1,13 +1,14 @@
-define bank.config.credits.days_between_interests = 3
-define bank.config.credits.interests = 0.1
-
-# Variables
-default bank.variables.credits = []
-default bank.variables.bank_index = -1
-default bank.variables.twatch_index= -1
-
 label bank:
     label .prepare:
+        # Config
+        define bank.config.credits.days_between_interests = 3
+        define bank.config.credits.interests = 0.1
+
+        # Variables
+        default bank.variables.credits = []
+        default bank.variables.bank_index = -1
+        default bank.variables.twatch_index= -1
+        
         define bank_application = {
             "tooltip": "Bank",
             "idle": "mods/bank/images/stos/bank.png",

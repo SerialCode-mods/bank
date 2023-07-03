@@ -1,4 +1,4 @@
-label bank_get_credit:
+label bank_credits_take:
     if len(bank.variables.credits) > 3:
         t "You already have 3 bank.variables.credits. You can't take any more."
         jump bank_main

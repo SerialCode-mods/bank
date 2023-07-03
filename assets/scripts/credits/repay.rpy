@@ -1,4 +1,4 @@
-label bank_repay_credit:
+label bank_credits_repay:
     t "What credit do you want to repay?"
 
     python:
@@ -21,7 +21,7 @@ label bank_repay_credit:
         "All at once":
             if CCOIN < chosen_credit.amount:
                 t "You don't have enough money."
-                jump bank_repay_credit
+                jump bank_credits_repay
 
             $ bank.variables.credits.remove(chosen_credit)
 
@@ -35,10 +35,10 @@ label bank_repay_credit:
 
             if amount > CCOIN:
                 t "You don't have enough money."
-                jump bank_repay_credit
+                jump bank_credits_repay
             elif amount > credit.amount:
                 t "You can't repay more than you owe."
-                jump bank_repay_credit
+                jump bank_credits_repay
             elif amount < credit.amount:
                 $ credit.amount -= amount
                 t "Credit partially repaid."

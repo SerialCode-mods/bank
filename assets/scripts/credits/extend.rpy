@@ -1,4 +1,4 @@
-label bank_extend_credit:
+label bank_credits_extend:
     t "What credit do you want to extend?"
 
     python:
@@ -23,7 +23,7 @@ label bank_extend_credit:
 
         if chosen_credit.last_extension != 0:
             narrator(f"You can't extend this credit until the current extension runs out. You still need to wait {chosen_credit.last_increase}.")
-            renpy.jump("bank_extend_credit")
+            renpy.jump("bank_credits_extend")
         
         cost = int(chosen_credit.raw_amount * chosen_credit.interests)
         amount_in_weeks = int(renpy.input(f"You currently have {CCOIN} credits. It will cost you {cost} credits for a week. How many weeks do you want to extend?", allow="0123456789"))
@@ -32,14 +32,14 @@ label bank_extend_credit:
 
         if amount_in_weeks == 0:
             narrator("You can't extend your credit for 0 weeks.")
-            renpy.jump("bank_extend_credit")
+            renpy.jump("bank_credits_extend")
         elif amount_in_weeks > 2:
             narrator("You can't extend your credit for more than 2 weeks.")
-            renpy.jump("bank_extend_credit")
+            renpy.jump("bank_credits_extend")
 
         if amount > CCOIN:
             narrator("You don't have enough money.")
-            renpy.jump("bank_extend_credit")
+            renpy.jump("bank_credits_extend")
         else:
             confirmation_menu = [
                 ("Yes", True),
@@ -50,7 +50,7 @@ label bank_extend_credit:
 
             if not confirmation:
                 narrator("Credit not extended.")
-                renpy.jump("bank_extend_credit")
+                renpy.jump("bank_credits_extend")
             
             days = 7 * amount_in_weeks
             chosen_credit.time += days
