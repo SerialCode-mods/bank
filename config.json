@@ -1,6 +1,6 @@
 {
-    "name": "Template",
-    "injected_name": "template",
+    "name": "Bank",
+    "injected_name": "bank",
     "versions": {
         "mod": "0.2",
         "game": "0.4b"
