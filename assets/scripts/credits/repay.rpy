@@ -42,6 +42,7 @@ label bank_credits_repay:
             elif amount < credit.amount:
                 $ credit.amount -= amount
                 t "Credit partially repaid."
+                jump bank_main
             else:
                 $ bank.variables.credits.remove(chosen_credit)
                 t "Credit repaid."
