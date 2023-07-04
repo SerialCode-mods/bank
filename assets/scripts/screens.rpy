@@ -28,7 +28,7 @@ init python:
         { "tooltip": "Twatch.tv", "idle": "images/stos/tv.png", "hover": "images/stos/tv_hover.png", "label": "twatch_main", "condition": twatch_check }
     ]
     pad_applications(dock_length)
-    applications.append({ "tooltip": "Wait", "idle": "images/stos/wait.png", "hover": "images/stos/wait.png", "label": "waitinSTOS" })
+    applications.append({ "tooltip": "Wait", "idle": "images/stos/wait.png", "hover": "images/stos/wait_hover.png", "label": "waitinSTOS" })
 
     def find_index_of_application(label: str):
         for index, app in enumerate(applications):
@@ -75,15 +75,6 @@ default wallpapers = [
     { "id": 100, "path": "menu_movie2", "append": ["gui/darken50.png"] },
     { "id": 199, "path": "crackedpc" }
 ]
-
-# $ applications += { "tooltip": "Twatch.tv", "idle": "images/stos/tv.png", "hover": "images/stos/tv_hover.png", "label": "twatch_main" }
-# $ applications.append({ "tooltip": "Wait", "idle": "images/stos/wait.png", "hover": "images/stos/wait.png", "label": "waitinSTOS" })
-
-# $ print("CURRENT applications " + str(applications))
-# # TODO: Fix padding not being added tomorrow
-# $ applications = pad_applications(dock_length)
-# $ applications.append({ "tooltip": "Wait", "idle": "images/stos/wait.png", "hover": "images/stos/wait.png", "label": "waitinSTOS" })
-# $ print("PADDED applications " + str(applications))
 
 screen STOS:
     $ wallpaper = get_wallpaper(WallpaperChoice)
