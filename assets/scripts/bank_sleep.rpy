@@ -6,7 +6,7 @@ label bank_sleep:
 
         python:
             if len(bank.variables.credits) > 0:
-                for credit in credits:
+                for credit in bank.variables.credits:
                     credit.time -= 1
 
                     if credit.last_extension > 0:
@@ -14,8 +14,8 @@ label bank_sleep:
 
                     credit.check_interests()
 
-                has_any_urgent_credit = any(credit.time == 1 for x in credits)
-                has_failed_to_repay_any_credit = any(credit.time <= 0 for x in credits)
+                has_any_urgent_credit = any(credit.time == 1 for credit in bank.variables.credits)
+                has_failed_to_repay_any_credit = any(credit.time <= 0 for credit in bank.variables.credits)
 
                 if has_failed_to_repay_any_credit:
                     narrator("I failed to repay some credits... I'm in trouble now.")
