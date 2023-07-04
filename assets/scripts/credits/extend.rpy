@@ -22,7 +22,7 @@ label bank_credits_extend:
         chosen_credit = bank.variables.credits[choice]
 
         if chosen_credit.last_extension != 0:
-            narrator(f"You can't extend this credit until the current extension runs out. You still need to wait {chosen_credit.last_increase}.")
+            renpy.say(t, f"You can't extend this credit until the current extension runs out. You still need to wait {chosen_credit.last_increase}.")
             renpy.jump("bank_credits_extend")
         
         cost = int(chosen_credit.raw_amount * chosen_credit.interests)
@@ -31,30 +31,30 @@ label bank_credits_extend:
         amount = cost
 
         if amount_in_weeks == 0:
-            narrator("You can't extend your credit for 0 weeks.")
+            renpy.say(t, "You can't extend your credit for 0 weeks.")
             renpy.jump("bank_credits_extend")
         elif amount_in_weeks > 2:
-            narrator("You can't extend your credit for more than 2 weeks.")
+            renpy.say(t, "You can't extend your credit for more than 2 weeks.")
             renpy.jump("bank_credits_extend")
 
         if amount > CCOIN:
-            narrator("You don't have enough money.")
+            renpy.say(t, "You don't have enough money.")
             renpy.jump("bank_credits_extend")
         else:
             confirmation_menu = [
                 ("Yes", True),
                 ("No", False)
             ]
-            narrator(f"You will have to pay {cost} credits for {amount_in_weeks} week{'s' if amount_in_weeks > 1 else ''}. Are you sure?"),
+            renpy.say(t, f"You will have to pay {cost} credits for {amount_in_weeks} week{'s' if amount_in_weeks > 1 else ''}. Are you sure?"),
             confirmation = renpy.display_menu(confirmation_menu)
 
             if not confirmation:
-                narrator("Credit not extended.")
+                renpy.say(t, "Credit not extended.")
                 renpy.jump("bank_credits_extend")
             
             days = 7 * amount_in_weeks
             chosen_credit.time += days
             chosen_credit.last_extension = days
-            narrator("Credit extended.")
+            renpy.say(t, "Credit extended.")
 
         renpy.jump("bank_main")

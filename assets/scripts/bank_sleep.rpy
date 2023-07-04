@@ -18,13 +18,13 @@ label bank_sleep:
                 has_failed_to_repay_any_credit = any(credit.time <= 0 for credit in bank.variables.credits)
 
                 if has_failed_to_repay_any_credit:
-                    narrator("I failed to repay some credits... I'm in trouble now.")
+                    renpy.say(t, "I failed to repay some credits... I'm in trouble now.")
                     # TODO: Add an actual scene. Maybe Mariko being kidnapped, giving you one more week to repay or game over?
                     renpy.call_screen("CS_Death")
                 elif has_any_urgent_credit:
-                    narrator("It's the last day for some credits, I really need to repay them quickly!")
+                    renpy.say(t, "It's the last day for some credits, I really need to repay them quickly!")
                 else:
-                    narrator("I have some credits to pay off... I should probably work a bit more.")
+                    renpy.say(t, "I have some credits to pay off... I should probably work a bit more.")
 
         scene ren_evening with dissolve
         call night_event_check
