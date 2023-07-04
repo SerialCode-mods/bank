@@ -33,7 +33,10 @@ label bank_credits_repay:
 
             $ amount = int(renpy.input(f"You currently have [CCOIN] money. You need to repay {int(chosen_credit.amount)} credits", allow="0123456789"))
 
-            if amount > CCOIN:
+            if amount < 1:
+                t "You can't repay less than 1 credit."
+                jump bank_credits_repay
+            elif amount > CCOIN:
                 t "You don't have enough money."
                 jump bank_credits_repay
             elif amount > credit.amount:
